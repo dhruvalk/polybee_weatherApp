@@ -1,16 +1,51 @@
 .mainContainer {
   display: flex;
   flex: 1;
+  padding: 0 100px;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
 }
 
-.card {
-  border: black solid;
+.weatherCard {
+  border: rgb(194, 194, 194) solid 1px;
+  border-radius: 5px;
   flex-wrap: wrap;
   height: 200px;
   width: 150px;
   margin: 5px;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.weatherCard input {
+  width: 90%;
+  margin: 20px 0;
+  border: none;
+  border-bottom: solid black 1px;
+}
+
+.weatherCard input:focus {
+  outline: none;
+  border-bottom: blue solid 1px;
+}
+
+.weatherCard button {
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 20px;
+  width: 90%;
+  border: none;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.weatherCard button:hover {
+  opacity: 70%;
 }

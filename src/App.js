@@ -28,7 +28,6 @@ function App() {
           <WeatherCard data={cityData} id={index} setData={setCityData} />
         ))}
       </div>
-      {/* <button onClick={addToList}>Add list</button> */}
       <button onClick={clearList}>Clear list</button>
     </div>
   );
