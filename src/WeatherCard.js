@@ -11,7 +11,7 @@ export default function WeatherCard({ data, id, setData }) {
     if (!city) return;
     try {
       const response = await fetch(
-        `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.REACT_APP_OPEN_WEATHERMAP_API_KEY}`,
+        `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.REACT_APP_OPEN_WEATHERMAP_API_KEY}`,
         {
           method: "GET",
         }
