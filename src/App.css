@@ -1,3 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+body,
+button,
+input {
+  font-family: "Poppins", sans-serif;
+}
+
 header {
   background-color: black;
   color: white;
@@ -11,8 +19,8 @@ header {
 header button {
   padding: 10px;
   border-radius: 10px;
-  width: 100px;
-  margin: 0 50px;
+  width: 120px;
+  margin: 0 60px;
   margin-right: 30px;
   border: none;
   cursor: pointer;
@@ -47,6 +55,9 @@ header button:hover {
   align-items: center;
   position: relative;
   transition: ease-in-out 0.2s;
+  /* background-image: ; */
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .weatherCard:hover {
@@ -80,4 +91,17 @@ header button:hover {
 
 .weatherCard button:hover {
   opacity: 70%;
+}
+
+.weatherStatus {
+  display: flex;
+  text-transform: capitalize;
+}
+
+.cityName {
+  text-transform: capitalize;
+}
+
+.weatherStatus img {
+  margin-right: 5px;
 }

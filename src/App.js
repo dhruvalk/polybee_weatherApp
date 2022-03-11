@@ -31,11 +31,16 @@ function App() {
           alt="logo"
         />
         <h1>Weather Forecast</h1>
-        <button onClick={clearList}>Clear Cities</button>
+        <button onClick={clearList}>CLEAR CITIES</button>
       </header>
       <div className="mainContainer">
         {cityData.map((entry, index) => (
-          <WeatherCard data={cityData} id={index} setData={setCityData} />
+          <WeatherCard
+            data={cityData}
+            id={index}
+            setData={setCityData}
+            key={index}
+          />
         ))}
       </div>
     </div>
