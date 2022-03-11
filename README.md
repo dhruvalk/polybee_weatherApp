@@ -5,11 +5,6 @@
 - Save each input into browser local storage
 - Auto refresh all weather info for entered cities every 30seconds
 
-## View the different weather images by typing in the following places
-- London (Rain)
-- Mumbai (Smoke)
-- Singapore (Clouds)
-
 ## Built using
 - ReactJS
 - Vanilla CSS
