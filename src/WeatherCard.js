@@ -48,7 +48,7 @@ export default function WeatherCard({ data, id, setData }) {
         return clearBg;
       case "Sunny":
         return sunnyBg;
-      case "Rainy":
+      case "Rain":
         return rainyBg;
       case "Smoke":
         return smokeBg;
