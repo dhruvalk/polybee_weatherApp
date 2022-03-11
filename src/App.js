@@ -14,6 +14,7 @@ function App() {
   const clearList = () => {
     localStorage.removeItem("data");
     setCityData(emptyArr);
+    alert("All cities cleared!");
   };
 
   useEffect(() => {
@@ -23,12 +24,20 @@ function App() {
 
   return (
     <div>
+      <header>
+        <img
+          src={require("./assets/polybee_logo_white.png")}
+          width={200}
+          alt="logo"
+        />
+        <h1>Weather Forecast</h1>
+        <button onClick={clearList}>Clear Cities</button>
+      </header>
       <div className="mainContainer">
         {cityData.map((entry, index) => (
           <WeatherCard data={cityData} id={index} setData={setCityData} />
         ))}
       </div>
-      <button onClick={clearList}>Clear list</button>
     </div>
   );
 }
