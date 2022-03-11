@@ -6,6 +6,7 @@ import clearBg from "./assets/clear_bg.jpg";
 import smokeBg from "./assets/smoke_bg.jpg";
 
 export default function WeatherCard({ data, id, setData }) {
+  //API call to get current weather status at city
   const getWeather = async (city) => {
     if (!city) return;
     try {
@@ -24,6 +25,7 @@ export default function WeatherCard({ data, id, setData }) {
     }
   };
 
+  //add entered city to local storage
   const addToList = async () => {
     const cityWeather = await getWeather(text);
     await setEdit(false);
@@ -36,6 +38,7 @@ export default function WeatherCard({ data, id, setData }) {
     });
   };
 
+  //get background image depending on the weather in city
   const getBackground = (data) => {
     if (!data.name) return null;
     switch (data.weather) {
@@ -58,8 +61,8 @@ export default function WeatherCard({ data, id, setData }) {
   const cityWeather = data[id].weather;
   const bgImage = getBackground(data[id]);
 
-  const [text, setText] = useState(cityName);
-  const [edit, setEdit] = useState(false);
+  const [text, setText] = useState(cityName); //city input by the user
+  const [edit, setEdit] = useState(false); //state to control is user is editing city
 
   return (
     <div className="weatherCard" style={{ backgroundImage: `url(${bgImage})` }}>
@@ -74,9 +77,9 @@ export default function WeatherCard({ data, id, setData }) {
           autoComplete={"No"}
         />
       )}
-      {cityWeather && cityWeather != "Invalid" && !edit && (
+      {cityWeather && cityWeather !== "Invalid" && !edit && (
         <div className="weatherStatus">
-          <img src={require("./assets/cloud.png")} width={20} />
+          <img src={require("./assets/cloud.png")} alt="weather" width={20} />
           {cityWeather}
         </div>
       )}

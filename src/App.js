@@ -3,7 +3,7 @@ import "./App.css";
 import WeatherCard from "./WeatherCard";
 
 function App() {
-  const numGrids = 9;
+  const numGrids = 9; //number of total grids to display by default
   let emptyArr = [];
   for (var x = 0; x < numGrids; x++) {
     emptyArr.push({});
@@ -11,6 +11,7 @@ function App() {
 
   const [cityData, setCityData] = useState(emptyArr);
 
+  //clear local storage
   const clearList = () => {
     localStorage.removeItem("data");
     setCityData(emptyArr);
