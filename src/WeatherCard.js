@@ -6,25 +6,6 @@ import clearBg from "./assets/clear_bg.jpg";
 import smokeBg from "./assets/smoke_bg.jpg";
 
 export default function WeatherCard({ data, id, setData }) {
-  //API call to get current weather status at city
-  const getWeather = async (city) => {
-    if (!city) return;
-    try {
-      const response = await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.REACT_APP_OPEN_WEATHERMAP_API_KEY}`,
-        {
-          method: "GET",
-        }
-      );
-      const result = await response.json();
-      if (result.weather) return result.weather[0].main;
-      else return "Invalid";
-    } catch (error) {
-      console.error(error);
-      return "";
-    }
-  };
-
   //add entered city to local storage
   const addToList = async () => {
     const cityWeather = await getWeather(text);
@@ -102,3 +83,22 @@ export default function WeatherCard({ data, id, setData }) {
     </div>
   );
 }
+
+//API call to get current weather status at city
+export const getWeather = async (city) => {
+  if (!city) return;
+  try {
+    const response = await fetch(
+      `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.REACT_APP_OPEN_WEATHERMAP_API_KEY}`,
+      {
+        method: "GET",
+      }
+    );
+    const result = await response.json();
+    if (result.weather) return result.weather[0].main;
+    else return "Invalid";
+  } catch (error) {
+    console.error(error);
+    return "";
+  }
+};
