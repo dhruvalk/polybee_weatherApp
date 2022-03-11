@@ -36,6 +36,7 @@ export default function WeatherCard({ data, id, setData }) {
       const newArr = [...prev];
       return newArr;
     });
+    await setText("");
   };
 
   //get background image depending on the weather in city
@@ -75,6 +76,9 @@ export default function WeatherCard({ data, id, setData }) {
           value={text || ""}
           onChange={(e) => setText(e.target.value)}
           autoComplete={"No"}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") addToList();
+          }}
         />
       )}
       {cityWeather && cityWeather !== "Invalid" && !edit && (
