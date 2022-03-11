@@ -3,6 +3,7 @@ import sunnyBg from "./assets/sunny_bg.jpg";
 import cloudyBg from "./assets/cloudy_bg.jpg";
 import rainyBg from "./assets/rainy_bg.jpg";
 import clearBg from "./assets/clear_bg.jpg";
+import smokeBg from "./assets/smoke_bg.jpg";
 
 export default function WeatherCard({ data, id, setData }) {
   const getWeather = async (city) => {
@@ -46,6 +47,8 @@ export default function WeatherCard({ data, id, setData }) {
         return sunnyBg;
       case "Rainy":
         return rainyBg;
+      case "Smoke":
+        return smokeBg;
       default:
         return "white";
     }
@@ -71,7 +74,7 @@ export default function WeatherCard({ data, id, setData }) {
           autoComplete={"No"}
         />
       )}
-      {cityWeather && !edit && (
+      {cityWeather && cityWeather != "Invalid" && !edit && (
         <div className="weatherStatus">
           <img src={require("./assets/cloud.png")} width={20} />
           {cityWeather}
