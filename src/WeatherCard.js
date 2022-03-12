@@ -6,13 +6,19 @@ import clearBg from "./assets/clear_bg.jpg";
 import smokeBg from "./assets/smoke_bg.jpg";
 
 export default function WeatherCard({ data, id, setData }) {
-  //add entered city to local storage
+  //add entered city to local storage, claled when user enters a new city
   const addToList = async () => {
-    const cityWeather = await getWeather(text);
+    const response = await getWeather(text);
+    let cityWeather = "";
+    let temp = "";
+    if (response) {
+      [cityWeather, temp] = response;
+    }
     await setEdit(false);
     await setData((prev) => {
       prev[id].name = cityWeather === "Invalid" ? "Invalid City!" : text;
       prev[id].weather = cityWeather;
+      prev[id].temp = temp;
       localStorage.setItem("data", JSON.stringify(prev));
       const newArr = [...prev];
       return newArr;
@@ -41,6 +47,7 @@ export default function WeatherCard({ data, id, setData }) {
 
   const cityName = data[id].name;
   const cityWeather = data[id].weather;
+  const temp = data[id].temp;
   const bgImage = getBackground(data[id]);
 
   const [text, setText] = useState(cityName); //city input by the user
@@ -63,10 +70,15 @@ export default function WeatherCard({ data, id, setData }) {
         />
       )}
       {cityWeather && cityWeather !== "Invalid" && !edit && (
-        <div className="weatherStatus">
-          <img src={require("./assets/cloud.png")} alt="weather" width={20} />
-          {cityWeather}
+        <div>
+          <div className="weatherStatus">
+            <img src={require("./assets/cloud.png")} alt="weather" width={20} />
+            {cityWeather}
+          </div>
         </div>
+      )}
+      {temp && temp !== "Invalid" && !edit && (
+        <div className="weatherTemp">{temp} ºC</div>
       )}
       {edit ? (
         <button onClick={addToList} style={{ backgroundColor: "green" }}>
@@ -89,14 +101,14 @@ export const getWeather = async (city) => {
   if (!city) return;
   try {
     const response = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.REACT_APP_OPEN_WEATHERMAP_API_KEY}`,
+      `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.REACT_APP_OPEN_WEATHERMAP_API_KEY}&units=metric`,
       {
         method: "GET",
       }
     );
     const result = await response.json();
-    if (result.weather) return result.weather[0].main;
-    else return "Invalid";
+    if (result.weather) return [result.weather[0].main, result.main.temp];
+    else return ["Invalid", "Invalid"];
   } catch (error) {
     console.error(error);
     return "";

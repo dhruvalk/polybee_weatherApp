@@ -55,7 +55,6 @@ header button:hover {
   align-items: center;
   position: relative;
   transition: ease-in-out 0.2s;
-  /* background-image: ; */
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -104,4 +103,9 @@ header button:hover {
 
 .weatherStatus img {
   margin-right: 5px;
+}
+
+.weatherTemp {
+  font-size: larger;
+  font-weight: bold;
 }

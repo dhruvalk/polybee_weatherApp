@@ -9,7 +9,7 @@ function App() {
     emptyArr.push({});
   }
 
-  const [cityData, setCityData] = useState(emptyArr);
+  const [cityData, setCityData] = useState(emptyArr); //store all location data
 
   //clear local storage
   const clearList = () => {
@@ -31,11 +31,15 @@ function App() {
       var data = JSON.parse(initialValue);
       for (const entry of data) {
         if (entry.name) {
-          const newWeather = await getWeather(entry.name);
+          const [newWeather, newTemp] = await getWeather(entry.name); //fetch updated weather and temperature
           if (entry.weather !== newWeather) {
             console.log("updating weather!");
           }
+          if (entry.temp !== newTemp) {
+            console.log("updating temperature!");
+          }
           entry.weather = newWeather;
+          entry.temp = newTemp;
         }
       }
       setCityData(data);
