@@ -19,3 +19,9 @@ View the page live here: [https://polybee-weather.herokuapp.com/](https://polybe
 - ReactJS
 - Vanilla CSS
 - OpenWeatherMap API
+
+## Screenshots
+<img width="526" alt="image" src="https://user-images.githubusercontent.com/61272665/158025141-c462587b-e043-480e-9a56-735702f64f5b.png">
+<img width="526" alt="image" src="https://user-images.githubusercontent.com/61272665/158025221-981e1e6d-db43-4a3b-92da-b4ad98596019.png">
+
+
