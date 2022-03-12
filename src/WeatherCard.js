@@ -64,6 +64,7 @@ export default function WeatherCard({ data, id, setData }) {
           value={text || ""}
           onChange={(e) => setText(e.target.value)}
           autoComplete={"No"}
+          autoFocus={true}
           onKeyDown={(e) => {
             if (e.key === "Enter") addToList();
           }}
@@ -107,7 +108,8 @@ export const getWeather = async (city) => {
       }
     );
     const result = await response.json();
-    if (result.weather) return [result.weather[0].main, result.main.temp];
+    if (result.weather)
+      return [result.weather[0].main, Math.round(result.main.temp)];
     else return ["Invalid", "Invalid"];
   } catch (error) {
     console.error(error);
