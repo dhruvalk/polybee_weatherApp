@@ -1,4 +1,5 @@
-# WebApp to display weather information of different cities.
+# Polybee Weather WebApp
+This project wascreated with ReactJS and bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Features Implemented
 - Display weather information based on city name input.
@@ -7,9 +8,10 @@
 
 ## Recreate project locally
 - Clone git repository
-- Install all node modules using npm i
-- Create a .env file and add API key using key name REACT_APP_OPEN_WEATHERMAP_API_KEY and value as OpenWeatherMap API key value
-- Run npm start
+- Install all node modules using ```npm i```
+- Create a .env file and add in your OpenWeatherMap API key as in the following line (without the brackets)
+```REACT_APP_OPEN_WEATHERMAP_API_KEY = {your API key}```
+- Run ```npm start```
 
 ## Built using
 - ReactJS
