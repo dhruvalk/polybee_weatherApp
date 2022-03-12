@@ -1,33 +1,10 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import WeatherCard, { getWeather } from "./WeatherCard";
+import { days, months, numGrids } from "./constants";
 
 function App() {
-  const numGrids = 9; //number of total grids to display by default
   const d = new Date();
-  const days = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
-  const months = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
   const currentTime = `${days[d.getDay()]}, ${d.getDate()} ${
     months[d.getMonth()]
   } ${d.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}`;
