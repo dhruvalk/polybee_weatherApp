@@ -4,6 +4,9 @@ import cloudyBg from "../assets/cloudy_bg.jpg";
 import rainyBg from "../assets/rainy_bg.jpg";
 import clearBg from "../assets/clear_bg.jpg";
 import smokeBg from "../assets/smoke_bg.jpg";
+import hazeBg from "../assets/haze_bg.png";
+import mistBg from "../assets/mist_bg.jpg";
+import snowBg from "../assets/snow_bg.jpg";
 
 export default function WeatherCard({ data, id, setData }) {
   //add entered city to local storage, called when user enters a new city
@@ -40,6 +43,12 @@ export default function WeatherCard({ data, id, setData }) {
         return rainyBg;
       case "Smoke":
         return smokeBg;
+      case "Haze":
+        return hazeBg;
+      case "Mist":
+        return mistBg;
+      case "Snow":
+        return snowBg;
       default:
         return "white";
     }
