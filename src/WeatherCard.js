@@ -82,7 +82,7 @@ export default function WeatherCard({ data, id, setData }) {
       {temp && temp !== "Invalid" && !edit && (
         <div className="weatherTempContainer">
           <div className="weatherTemp">
-            {celcius ? temp : (temp * 9) / 5 + 32}
+            {celcius ? temp : Math.round((temp * 9) / 5 + 32)}
           </div>
           <div
             className={`unit ${celcius && "active"}`}

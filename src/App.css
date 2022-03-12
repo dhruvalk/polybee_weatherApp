@@ -32,6 +32,12 @@ header button:hover {
   transform: scale(1.05);
 }
 
+.currentTime {
+  text-align: end;
+  padding-right: 10px;
+  font-size: small;
+}
+
 .mainContainer {
   display: flex;
   flex: 1;

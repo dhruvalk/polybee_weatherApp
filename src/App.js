@@ -4,6 +4,33 @@ import WeatherCard, { getWeather } from "./WeatherCard";
 
 function App() {
   const numGrids = 9; //number of total grids to display by default
+  const d = new Date();
+  const days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  const months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  const currentTime = `${days[d.getDay()]}, ${d.getDate()} ${
+    months[d.getMonth()]
+  } ${d.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}`;
   let emptyArr = [];
   for (var x = 0; x < numGrids; x++) {
     emptyArr.push({});
@@ -65,9 +92,10 @@ function App() {
           width={200}
           alt="logo"
         />
-        <h1>Weather App</h1>
+        <h1>Weather</h1>
         <button onClick={clearList}>CLEAR CITIES</button>
       </header>
+      <div className="currentTime">{currentTime}</div>
       <div className="mainContainer">
         {cityData.map((entry, index) => (
           <WeatherCard
