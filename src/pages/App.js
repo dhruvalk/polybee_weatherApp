@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import WeatherCard, { getWeather } from "./WeatherCard";
-import { days, months, numGrids } from "./constants";
+import WeatherCard, { getWeather } from "../components/WeatherCard";
+import { days, months, numGrids } from "../utilities/constants";
 
 function App() {
   const d = new Date();
@@ -65,7 +65,7 @@ function App() {
     <div>
       <header>
         <img
-          src={require("./assets/polybee_logo_white.png")}
+          src={require("../assets/polybee_logo_white.png")}
           width={200}
           alt="logo"
         />

@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import sunnyBg from "./assets/sunny_bg.jpg";
-import cloudyBg from "./assets/cloudy_bg.jpg";
-import rainyBg from "./assets/rainy_bg.jpg";
-import clearBg from "./assets/clear_bg.jpg";
-import smokeBg from "./assets/smoke_bg.jpg";
+import sunnyBg from "../assets/sunny_bg.jpg";
+import cloudyBg from "../assets/cloudy_bg.jpg";
+import rainyBg from "../assets/rainy_bg.jpg";
+import clearBg from "../assets/clear_bg.jpg";
+import smokeBg from "../assets/smoke_bg.jpg";
 
 export default function WeatherCard({ data, id, setData }) {
   //add entered city to local storage, called when user enters a new city
@@ -74,7 +74,11 @@ export default function WeatherCard({ data, id, setData }) {
       {cityWeather && cityWeather !== "Invalid" && !edit && (
         <div>
           <div className="weatherStatus">
-            <img src={require("./assets/cloud.png")} alt="weather" width={20} />
+            <img
+              src={require("../assets/cloud.png")}
+              alt="weather"
+              width={20}
+            />
             {cityWeather}
           </div>
         </div>
