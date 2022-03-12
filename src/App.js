@@ -65,7 +65,7 @@ function App() {
           width={200}
           alt="logo"
         />
-        <h1>Weather Forecast</h1>
+        <h1>Weather App</h1>
         <button onClick={clearList}>CLEAR CITIES</button>
       </header>
       <div className="mainContainer">

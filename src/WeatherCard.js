@@ -6,7 +6,7 @@ import clearBg from "./assets/clear_bg.jpg";
 import smokeBg from "./assets/smoke_bg.jpg";
 
 export default function WeatherCard({ data, id, setData }) {
-  //add entered city to local storage, claled when user enters a new city
+  //add entered city to local storage, called when user enters a new city
   const addToList = async () => {
     const response = await getWeather(text);
     let cityWeather = "";
@@ -52,6 +52,7 @@ export default function WeatherCard({ data, id, setData }) {
 
   const [text, setText] = useState(cityName); //city input by the user
   const [edit, setEdit] = useState(false); //state to control is user is editing city
+  const [celcius, setCelcius] = useState(true); //state to toggle celcius and farenheit
 
   return (
     <div className="weatherCard" style={{ backgroundImage: `url(${bgImage})` }}>
@@ -79,7 +80,24 @@ export default function WeatherCard({ data, id, setData }) {
         </div>
       )}
       {temp && temp !== "Invalid" && !edit && (
-        <div className="weatherTemp">{temp} ºC</div>
+        <div className="weatherTempContainer">
+          <div className="weatherTemp">
+            {celcius ? temp : (temp * 9) / 5 + 32}
+          </div>
+          <div
+            className={`unit ${celcius && "active"}`}
+            onClick={() => setCelcius(true)}
+          >
+            ºC
+          </div>
+          /
+          <div
+            className={`unit ${!celcius && "active"}`}
+            onClick={() => setCelcius(false)}
+          >
+            ºF
+          </div>
+        </div>
       )}
       {edit ? (
         <button onClick={addToList} style={{ backgroundColor: "green" }}>

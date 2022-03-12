@@ -105,7 +105,26 @@ header button:hover {
   margin-right: 5px;
 }
 
+.weatherTempContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
 .weatherTemp {
   font-size: larger;
   font-weight: bold;
+  margin-right: 5px;
+}
+
+.unit:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.active {
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
